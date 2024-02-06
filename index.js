@@ -5,7 +5,6 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const port = 3000;
 
 const cors = require('cors');
 app.use(cors());
@@ -72,6 +71,8 @@ app.post('/upload', upload.single('image'), async (req, res) => {
 app.get('/', (req, res) => {
   res.send('Server is UP and Running!')
 })
+
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
